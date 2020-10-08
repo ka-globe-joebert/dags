@@ -14,9 +14,9 @@ default_args = {
         }
 
 dag = DAG(
-        'tutorial',
+        'demo',
         default_args=default_args,
         start_date=datetime(2015, 12, 1),
-        description='A simple tutorial DAG',
+        description='A simple demo DAG',
         schedule_interval='@daily',
         catchup=False)
