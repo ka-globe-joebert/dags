@@ -14,9 +14,9 @@ default_args = {
         }
 
 dag = DAG(
-        'new',
+        'add',
         default_args=default_args,
         start_date=datetime(2015, 12, 1),
-        description='A simple new DAG',
+        description='A simple add DAG',
         schedule_interval='@weekly',
         catchup=False)
