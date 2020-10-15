@@ -22,8 +22,8 @@ dag = DAG(
 start = DummyOperator(task_id='run_this_first', dag=dag)
 
 passing = KubernetesPodOperator(namespace='edo-np-de',
-        image="Python:3.6",
-        cmds=["Python","-c"],
+        image="python:alpine",
+        cmds=["python","-c"],
         arguments=["print('hello world')"],
         labels={"foo": "bar"},
         name="passing-test",
@@ -33,8 +33,8 @@ passing = KubernetesPodOperator(namespace='edo-np-de',
         )
 
 failing = KubernetesPodOperator(namespace='edo-np-de',
-        image="ubuntu:1604",
-        cmds=["Python","-c"],
+        image="python:buster",
+        cmds=["python","-c"],
         arguments=["print('hello world')"],
         labels={"foo": "bar"},
         name="fail",
