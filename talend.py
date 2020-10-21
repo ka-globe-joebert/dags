@@ -8,7 +8,7 @@ default_args = {
         'owner': 'airflow',
         'depends_on_past': False,
         'start_date': datetime.utcnow(),
-        'email': ['airflow@example.com'],
+        'email': ['airflow@globe.com.ph'],
         'email_on_failure': False,
         'email_on_retry': False,
         'retries': 1,
@@ -21,10 +21,10 @@ dag = DAG(
 
 simplefileinout = KubernetesPodOperator(namespace='edo-np-de',
         image="nexus.edo.globe.com.ph/repository/edo-aim-dev-docker/talend",
-        cmds=["/mnt/SimpleFileInOutJob_run.sh"],
-        labels={"job": "simplefileinout"},
+        cmds=["./SimpleFileInOutJob_run.sh"],
+        labels={"app": "simplefileinout"},
         name="simplefileinout",
-        task_id="simplefileinout",
+        task_id="simplefileinout-task",
         get_logs=True,
         dag=dag
         )
