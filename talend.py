@@ -21,6 +21,7 @@ dag = DAG(
 
 simplefileinout = KubernetesPodOperator(namespace='edo-np-de',
         image="nexus.edo.globe.com.ph/repository/edo-aim-dev-docker/talend",
+        cmds=["/mnt/SimpleFileInOutJob_run.sh"],
         labels={"job": "simplefileinout"},
         name="simplefileinout",
         task_id="simplefileinout",
